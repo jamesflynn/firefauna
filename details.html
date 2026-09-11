@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Details &middot; Flaming.o &rsquo;26</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/details.html" aria-current="page">Details</a>
+</nav>
+
+<p class="eyebrow">Fire Fauna</p>
+<h1>Details</h1>
+
+<div id="gate">
+  <p class="tagline">Sign-ups, contacts and links. Password&rsquo;s in the group chat.</p>
+  <form class="gate" id="form">
+    <input type="password" id="pw" placeholder="Password" autocomplete="current-password"
+           autofocus aria-label="Password">
+    <button type="submit">Unlock</button>
+  </form>
+  <p class="err" id="err" role="alert"></p>
+</div>
+
+<div id="out"></div>
+
+<script type="application/octet-stream" id="blob">0RHQCrUln0yTlF7bYwuFb52rT2QkNZK0BlEjt6G88Vltw8P9CTzeSbxxzMvAjS2BmT94WsgHdjbqhpGvLfgDFgeQgnPXMrXwBwujsC77b21Bl1QvYP7eufiWP09q+zEVoVSSEDRKaVuTB9R4+eYZRH0GLp85KLORMddzhbOV5J3T1tD8rQQMN34nBytWfEGgURV+tCI1XYlsdNRzcbQh59P2YA6QPL4vJeaGjb3Ln9I/mbKqzxy4PWpuOYuTSiNtuMGjC+Sh/WN4h6uJHGbkCMJs5LksYz4iqtn+KygCytUi2NY9CJ8uOnkGBq31Y4t9f+PL+WznPa/ziJBPzfHCKI0pl6unutkLOVxc3qwnoVdE52DPs7IksFORbCM2JIvTTZ7h3zQK/qVq7dQFSNGVa47PlanP0T534TxDoXK9GdjR2MRYKjNxKQaMnXj4fRwHwyHlAeVWiFs9EnnXWPxbZoe983HUBKMbhqNEoUdlZUXrbrPbCPG5ApXvINpMSK77O9SP5yWFNq8AfWqrmHzFs2n/8VyoW23e0L2w57GHcDolwMlZtemHYi0x7rN59g/IAUIy5K1HffHDPyF16mDlSWVUKvi6xcC6oA/2rqlxj7qC1NHUg5kGs/26Qx5DPvci26sUmNDPPavz1cm6F8j+Rb9JCXH6GDoFWVGlH9iztE6f4eX28kK7HaKgP7QJrLhqpsRBVRm0k3POAeIJig2ld9q5+PXBVDNOSSRqDfNnErjCD2CZDjed2fohUZyxprRGEAHfd/386ReuKDGyV2Ab6czEQtII8oAKPL4Nx1dmJaK5YwA2DmH0BjlBiZr6lbuOXCMKgiVc/vfU4GBz3eD6wUVOrKxpcR2g9C5iMa/SSxUR45ZIYVpmuxLqlNJt6CDSgC17t4U4jSL8hVBAHJqn9q+y6ljwf7t2q21CwwJTNh0j6O6RoKFGcp9UVPsHpNdz26u4IzMqT21aflfx6WZM1GWMuc+nVIxiJD+m5cClCwE6ct0Z+lHPmvibK9ZqIfczWSHzSEHLVQo+UBySyhH4beJWAhBKNkfTWLTKx1/1fL6aXn7fm6jszVvyD3gDmncLo+JYL0PGjNtSdP40Aj+/KofhDMFoag72CJbN6UkwM9PNOAIUvKtD3tveEH7VTixIU+WKFkTZ6abUaYWWUXRU1LiGnuCBO76VaLXLg5F+FI/CEaI4nSLaMvZWeQDAYNbQ/F/yaUqyIyvk4qj7VTXP3CXeTSiOcyo+DT06QPjI9AHZ1FNJZkDR03GAYlUwz25XIEGy08+hUQA4IZFS+mQvfcwszfoG4uQGiztbHJ+OmFCYYNQmFKs0c3Y1Z1iq2z7aYtF4+B9lWPWX5naNiEooLQYBkdfZUgaEc3HRRW7SdjWdstck4/qpmY8lUY+Q0Ksm9pYLWxUNaPpQMo3yBPEXqcjR0auV/294gqaU4hgreZj1SvlUQtd1JPaAs8btVIM6Wc6izRmo1G7DUW2B3j0WNJXV4yXKht6CgABebCXLnYc05TPqC24QmAbARmTGx523SgO78tEsBqthR41BY32kRRGBuMlUxG/b/KEA3pGugux3T/pKRCpHxFPbjr98lXNe9EHdU0UucPzP2McaMhFuJt6P1cX1BJaHwbChKWvc5QmLfS7Q49JKjG8dUaNqDARdrgQbd/3UPfKNO3L9Da8+RPIxl6DZ3w1+Eb3sbm9E6g==</script>
+<script>
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+
+async function unlock(pass) {
+  const raw = b64(document.getElementById('blob').textContent.trim());
+  const salt = raw.slice(0, 16), iv = raw.slice(16, 28), data = raw.slice(28);
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass),
+    'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: 310000, hash: 'SHA-256' },
+    base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, data);
+  document.getElementById('out').innerHTML = new TextDecoder().decode(plain);
+  document.getElementById('gate').hidden = true;
+}
+
+document.getElementById('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const err = document.getElementById('err');
+  err.textContent = '';
+  try {
+    const pw = document.getElementById('pw').value;
+    await unlock(pw);
+    sessionStorage.setItem('fo', pw);   // stay unlocked while the tab is open
+  } catch {
+    err.textContent = 'Wrong password.';
+  }
+});
+
+// resume within the same tab
+const saved = sessionStorage.getItem('fo');
+if (saved) unlock(saved).catch(() => sessionStorage.removeItem('fo'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+  :root { color-scheme: light dark; --pink: #e0508a; }
+  body {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+    font: 1rem/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  h1 { font-size: 2.25rem; margin: 0 0 .25rem; letter-spacing: -.02em; color: var(--pink); }
+  .tagline { margin: 0 0 1rem; opacity: .65; }
+  h2 {
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .08em;
+    margin: 2.75rem 0 .6rem; padding-bottom: .3rem;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  }
+  h3 { font-size: .95rem; margin: 1.5rem 0 .4rem; }
+  p { margin: .5rem 0; }
+  ul { margin: .5rem 0; padding-left: 1.15rem; }
+  li { margin: .3rem 0; }
+  a { color: var(--pink); }
+  .lede { font-size: 1.05rem; }
+  .todo { opacity: .7; font-style: italic; }
+  .note { font-size: .875rem; opacity: .6; }
+  .eyebrow { margin: 0 0 .1rem; font-size: .8rem; text-transform: uppercase;
+             letter-spacing: .14em; opacity: .5; }
+  .lineage { margin-top: .4rem; }
+  dl.sched { display: grid; grid-template-columns: 4.25rem 1fr; gap: .3rem .75rem; margin: .4rem 0; }
+  dl.sched dt { font-variant-numeric: tabular-nums; opacity: .6; }
+  dl.sched dd { margin: 0; }
+  footer { margin-top: 3.5rem; font-size: .85rem; opacity: .55; }
+  nav { margin: 0 0 2.5rem; font-size: .9rem; display: flex; gap: 1.25rem; }
+  nav a { text-decoration: none; opacity: .6; }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] { opacity: 1; font-weight: 600; text-decoration: underline; }
+  form.gate { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
+  form.gate input { flex: 1 1 14rem; padding: .55rem .7rem; font: inherit;
+    border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+    border-radius: .4rem; background: transparent; color: inherit; }
+  form.gate button { padding: .55rem 1.1rem; font: inherit; cursor: pointer;
+    border: 0; border-radius: .4rem; background: var(--pink); color: #fff; }
+  .err { color: var(--pink); font-size: .9rem; min-height: 1.4em; }
